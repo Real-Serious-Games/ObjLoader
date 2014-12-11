@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataStore\DataStore.cs" />
+    <Compile Include="Data\DataStore\ILineDataStore.cs" />
     <Compile Include="Data\Elements\Face.cs" />
     <Compile Include="Data\DataStore\IElementGroup.cs" />
+    <Compile Include="Data\Elements\Line.cs" />
     <Compile Include="Data\Material.cs" />
     <Compile Include="Data\Elements\Group.cs" />
     <Compile Include="Data\DataStore\IFaceGroup.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="TypeParsers\Interfaces\IFaceParser.cs" />
     <Compile Include="TypeParsers\Interfaces\IGroupParser.cs" />
     <Compile Include="Loaders\IMaterialLibraryLoaderFacade.cs" />
+    <Compile Include="TypeParsers\Interfaces\ILineParser.cs" />
     <Compile Include="TypeParsers\Interfaces\IMaterialLibraryParser.cs" />
     <Compile Include="TypeParsers\Interfaces\INormalParser.cs" />
     <Compile Include="TypeParsers\Interfaces\ITextureParser.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="TypeParsers\Interfaces\IVertexParser.cs" />
     <Compile Include="Loaders\MaterialLibraryLoaderFacade.cs" />
     <Compile Include="TypeParsers\Interfaces\IUseMaterialParser.cs" />
+    <Compile Include="TypeParsers\LineParser.cs" />
     <Compile Include="TypeParsers\MaterialLibraryParser.cs" />
     <Compile Include="TypeParsers\NormalParser.cs" />
     <Compile Include="Common\StringExtensions.cs" />

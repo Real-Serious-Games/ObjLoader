@@ -7,7 +7,7 @@ using ObjLoader.Loader.Data.VertexData;
 namespace ObjLoader.Loader.Data.DataStore
 {
     public class DataStore : IDataStore, IGroupDataStore, IVertexDataStore, ITextureDataStore, INormalDataStore,
-                             IFaceGroup, IMaterialLibrary, IElementGroup
+                             IFaceGroup, IMaterialLibrary, IElementGroup, ILineDataStore
     {
         private Group _currentGroup;
 
@@ -17,6 +17,8 @@ namespace ObjLoader.Loader.Data.DataStore
         private readonly List<Vertex> _vertices = new List<Vertex>();
         private readonly List<Texture> _textures = new List<Texture>();
         private readonly List<Normal> _normals = new List<Normal>();
+
+        private readonly List<Line> _lines = new List<Line>();
 
         public IList<Vertex> Vertices
         {
@@ -41,6 +43,11 @@ namespace ObjLoader.Loader.Data.DataStore
         public IList<Group> Groups
         {
             get { return _groups; }
+        }
+
+        public IList<Line> Lines
+        {
+            get { return _lines; }
         }
 
         public void AddFace(Face face)
@@ -82,6 +89,11 @@ namespace ObjLoader.Loader.Data.DataStore
         public void Push(Material material)
         {
             _materials.Add(material);
+        }
+
+        public void AddLine (Line line)
+        {
+            _lines.Add( line );
         }
 
         public void SetMaterial(string materialName)
