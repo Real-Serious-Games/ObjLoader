@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using ObjLoader.Loader.Loaders;
+using System.Linq;
 
 namespace ObjLoader.Test
 {
@@ -43,14 +44,16 @@ namespace ObjLoader.Test
 
             foreach (var loaderGroup in result.Groups)
             {
-                sb.AppendLine(loaderGroup.Name);
-                sb.Append("Faces: ");
-                sb.AppendLine(loaderGroup.Faces.Count.ToString(CultureInfo.InvariantCulture));
+                sb.AppendLine("\t" + loaderGroup.Name);
+                sb.Append("\t\tFaces: ");
+                sb.AppendLine("\t\t\t" + loaderGroup.Faces.Count.ToString(CultureInfo.InvariantCulture));
+                sb.AppendLine("\t\tLines: ");
+                foreach (var line in loaderGroup.Lines)
+                {
+                    var lineStr = string.Join(", ", line.VertexIndicies.Select(i => i.ToString()).ToArray());
+                    sb.AppendLine("\t\t\t" + lineStr);
+                }
             }
-
-            sb.AppendLine();
-            sb.AppendLine( "Lines: " );
-            sb.AppendLine( result.Lines.Count.ToString( CultureInfo.InvariantCulture ) );
 
             Console.WriteLine(sb);
         }

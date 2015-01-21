@@ -91,8 +91,7 @@ namespace ObjLoader.Loader.Loaders
                                  Textures = _dataStore.Textures,
                                  Normals = _dataStore.Normals,
                                  Groups = _dataStore.Groups,
-                                 Materials = _dataStore.Materials,
-                                 Lines = _dataStore.Lines
+                                 Materials = _dataStore.Materials
                              };
             return result;
         }

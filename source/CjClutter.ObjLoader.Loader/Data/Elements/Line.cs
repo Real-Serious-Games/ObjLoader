@@ -14,6 +14,8 @@ namespace ObjLoader.Loader.Data.Elements
             _vertexIndices.Add( vertexIndex );
         }
 
+        public IList<int> VertexIndicies { get { return _vertexIndices; } }
+
         public int this[int i]
         {
             get

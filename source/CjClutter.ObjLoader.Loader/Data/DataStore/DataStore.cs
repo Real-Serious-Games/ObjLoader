@@ -93,7 +93,9 @@ namespace ObjLoader.Loader.Data.DataStore
 
         public void AddLine (Line line)
         {
-            _lines.Add( line );
+            PushGroupIfNeeded();
+
+            _currentGroup.AddLine(line);
         }
 
         public void SetMaterial(string materialName)
