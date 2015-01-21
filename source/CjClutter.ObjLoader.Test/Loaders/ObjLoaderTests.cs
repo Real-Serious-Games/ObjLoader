@@ -9,6 +9,8 @@ using FluentAssertions;
 
 namespace ObjLoader.Test.Loaders
 {
+
+    //TODO Adam: I need to ammend all tests to include Line parsing
     [TestFixture]
     public class ObjLoaderTests
     {
@@ -33,6 +35,7 @@ namespace ObjLoader.Test.Loaders
         private NormalParser _normalParser;
         private TextureParser _textureParser;
         private VertexParser _vertexParser;
+        private LineParser _lineParser;
         private MaterialLibraryLoader _materialLibraryLoader;
         private MaterialLibraryParser _materialLibraryParser;
         private UseMaterialParser _useMaterialParser;
@@ -49,6 +52,7 @@ namespace ObjLoader.Test.Loaders
             _normalParser = new NormalParser(_textureDataStore);
             _textureParser = new TextureParser(_textureDataStore);
             _vertexParser = new VertexParser(_textureDataStore);
+            _lineParser = new LineParser( _textureDataStore );
             _materialStreamProviderSpy = new MaterialStreamProviderSpy();
             _materialStreamProviderSpy.StreamToReturn = CreateMemoryStreamFromString(MaterialLibraryString);
 
@@ -57,7 +61,7 @@ namespace ObjLoader.Test.Loaders
             _materialLibraryParser = new MaterialLibraryParser(_materialLibraryLoaderFacade);
             _useMaterialParser = new UseMaterialParser(_textureDataStore);
 
-            _loader = new Loader.Loaders.ObjLoader(_textureDataStore, _faceParser, _groupParser, _normalParser, _textureParser, _vertexParser, _materialLibraryParser, _useMaterialParser);
+            _loader = new Loader.Loaders.ObjLoader(_textureDataStore, _faceParser, _groupParser, _normalParser, _textureParser, _vertexParser, _lineParser, _materialLibraryParser, _useMaterialParser);
         }
 
         [Test]
@@ -86,7 +90,7 @@ namespace ObjLoader.Test.Loaders
             var materialLibraryLoaderFacade = new MaterialLibraryLoaderFacade(_materialLibraryLoader, _materialStreamProviderSpy);
             var materialLibraryParser = new MaterialLibraryParser(materialLibraryLoaderFacade);
 
-            _loader = new Loader.Loaders.ObjLoader(_textureDataStore, _faceParser, _groupParser, _normalParser, _textureParser, _vertexParser, materialLibraryParser, _useMaterialParser);
+            _loader = new Loader.Loaders.ObjLoader(_textureDataStore, _faceParser, _groupParser, _normalParser, _textureParser, _vertexParser, _lineParser, materialLibraryParser, _useMaterialParser);
 
             Load();
 

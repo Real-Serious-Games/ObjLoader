@@ -19,6 +19,7 @@ namespace ObjLoader.Loader.Loaders
             INormalParser normalParser, 
             ITextureParser textureParser, 
             IVertexParser vertexParser,
+            ILineParser lineParser,
             IMaterialLibraryParser materialLibraryParser, 
             IUseMaterialParser useMaterialParser)
         {
@@ -29,6 +30,7 @@ namespace ObjLoader.Loader.Loaders
                 normalParser,
                 textureParser,
                 groupParser,
+                lineParser,
                 materialLibraryParser,
                 useMaterialParser);
         }
@@ -70,7 +72,8 @@ namespace ObjLoader.Loader.Loaders
                                  Textures = _dataStore.Textures,
                                  Normals = _dataStore.Normals,
                                  Groups = _dataStore.Groups,
-                                 Materials = _dataStore.Materials
+                                 Materials = _dataStore.Materials,
+                                 Lines = _dataStore.Lines
                              };
             return result;
         }

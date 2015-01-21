@@ -48,6 +48,10 @@ namespace ObjLoader.Test
                 sb.AppendLine(loaderGroup.Faces.Count.ToString(CultureInfo.InvariantCulture));
             }
 
+            sb.AppendLine();
+            sb.AppendLine( "Lines: " );
+            sb.AppendLine( result.Lines.Count.ToString( CultureInfo.InvariantCulture ) );
+
             Console.WriteLine(sb);
         }
     }

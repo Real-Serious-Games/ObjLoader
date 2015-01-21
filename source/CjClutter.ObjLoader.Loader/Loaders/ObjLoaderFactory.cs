@@ -25,13 +25,14 @@ namespace ObjLoader.Loader.Loaders
             var normalParser = new NormalParser(dataStore);
             var textureParser = new TextureParser(dataStore);
             var vertexParser = new VertexParser(dataStore);
+            var lineParser = new LineParser(dataStore);
 
             var materialLibraryLoader = new MaterialLibraryLoader(dataStore);
             var materialLibraryLoaderFacade = new MaterialLibraryLoaderFacade(materialLibraryLoader, materialStreamProvider);
             var materialLibraryParser = new MaterialLibraryParser(materialLibraryLoaderFacade);
             var useMaterialParser = new UseMaterialParser(dataStore);
 
-            return new ObjLoader(dataStore, faceParser, groupParser, normalParser, textureParser, vertexParser, materialLibraryParser, useMaterialParser);
+            return new ObjLoader(dataStore, faceParser, groupParser, normalParser, textureParser, vertexParser, lineParser, materialLibraryParser, useMaterialParser);
         }
     }
 }

@@ -12,5 +12,6 @@ namespace ObjLoader.Loader.Loaders
         public IList<Normal> Normals { get; set; }
         public IList<Group> Groups { get; set; }
         public IList<Material> Materials { get; set; }
+        public IList<Line> Lines { get; set; }
     }
 }
