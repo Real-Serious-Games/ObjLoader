@@ -64,6 +64,25 @@ namespace ObjLoader.Loader.Loaders
             return CreateResult();
         }
 
+        public LoadResult Load (string filepath)
+        {
+            if ( string.IsNullOrEmpty( filepath ) )
+            {
+                throw new FileNotFoundException( "the filepath provided to ObjLoader is null or empty" );
+            }
+            if ( !File.Exists( filepath ) )
+            {
+                throw new FileNotFoundException( string.Format( "the filepath: '{0}', could not be found", filepath ) );
+            }
+
+            File.SetAttributes( filepath, FileAttributes.Normal );
+
+            using ( var filestream = new FileStream( filepath, FileMode.Open ) )
+            {
+                return this.Load( filestream );
+            }
+        }
+
         private LoadResult CreateResult()
         {
             var result = new LoadResult

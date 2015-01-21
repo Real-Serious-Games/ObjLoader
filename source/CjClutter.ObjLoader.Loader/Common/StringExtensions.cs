@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Linq;
 
 namespace ObjLoader.Loader.Common
 {
@@ -23,6 +24,11 @@ namespace ObjLoader.Loader.Common
         public static bool IsNullOrEmpty(this string str)
         {
             return string.IsNullOrEmpty(str);
+        }
+
+        public static bool IsNullOrWhiteSpace(this string str)
+        {
+            return str.All( char.IsWhiteSpace );
         }
     }
 }
